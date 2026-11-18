@@ -1,0 +1,21 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+/*
+ * Brand tokens. Each one becomes a utility: bg-smoke, text-cream, border-ember...
+ * Keep the hex values in sync with src/constants/theme.ts, which feeds the few
+ * native APIs (tab bar, status bar, game canvas) that can't read class names.
+ */
+@theme {
+  --color-smoke: #17120f; /* app background */
+  --color-char: #231b16; /* cards, raised surfaces */
+  --color-hickory: #3a2c23; /* borders, pressed states */
+  --color-cream: #f6ecd9; /* primary text */
+  --color-tan: #b8a48a; /* secondary text */
+  --color-ember: #e2562b; /* primary action */
+  --color-bourbon: #d9942b; /* loyalty, rewards */
+  --color-pepper: #7fa650; /* success, in stock */
+}
