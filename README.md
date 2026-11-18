@@ -34,9 +34,9 @@ src/
     _layout.tsx        Root stack; imports global.css
     (tabs)/            The four tabs: index (Home), shop, play, account
   components/
-    ui/                Shared building blocks (Screen, Card)
+    ui/                Brand components (Headline, Button, Card, FlavorTag...)
     home/ shop/ play/ account/   Feature components, one folder per tab
-  constants/theme.ts   Brand colors for native APIs that can't take class names
+  constants/           Brand colors, shadows and the flavor lineup
   data/                Mock products, drops, loyalty, subscription
   hooks/               Shared hooks
   lib/                 Helpers now; API clients (Shopify, Recharge, Klaviyo) later
@@ -45,8 +45,17 @@ src/
   global.css           Tailwind entry and brand color tokens
 ```
 
-## Styling
+## Brand and styling
 
-Use Tailwind classes through `className`. Brand colors are defined once in `src/global.css` (`bg-smoke`, `bg-char`, `text-cream`, `text-tan`, `text-ember`, `text-bourbon`, `text-pepper`, `border-hickory`). `src/constants/theme.ts` mirrors them for the tab bar and other native APIs; change both together.
+The look comes from the Louisville Jerky Co. design system: https://claude.ai/artifact/VxKLF44LorgF8ucedwWVb8
+
+- **Tokens** live in `src/global.css` and become Tailwind classes: colors (`bg-cream`, `text-navy`, `bg-gold`, `bg-sky`...), semantic colors (`bg-ground`, `text-ink`, `border-edge`), type sizes (`text-headline`, `text-subhead`, `text-body`, `text-label`...), fonts (`font-display`, `font-body`, `font-body-bold`, `font-letter`, `font-flavor`) and radii (`rounded-lg`, `rounded-pill`). `src/constants/theme.ts` mirrors the colors and hard shadows for style props; change both together.
+- **Flavors** are in `src/constants/flavors.ts`: each Classic flavor's color, character and bag art.
+- **Components** in `src/components/ui` are ported from the design system: `Headline`, `Button`, `Card`, `FlavorTag`, `CertBadge`.
+- **Assets** are in `assets/brand` (logos, badges, characters, packaging) and `assets/fonts`.
+
+The app uses the Classic theme (cream ground, navy ink). `Headline` is the plain, ink-filled variant because React Native has no text stroke.
+
+Copy rules: headlines and CTAs are uppercase; no em dashes; customers are "Jerky Heads" and loyalty points are "Jerky Coins"; lead with flavor, never with "vegan"; never invent a stat or a scarcity claim.
 
 NativeWind is pinned to the v5 release candidate, which needs `lightningcss` held at 1.30.1 (see `overrides` in `package.json`).

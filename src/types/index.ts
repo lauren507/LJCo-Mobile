@@ -1,40 +1,35 @@
-export type HeatLevel = 'mild' | 'medium' | 'hot';
+import type { FlavorId } from '@/constants/flavors';
 
 export type Product = {
-  id: string;
-  name: string;
-  tagline: string;
+  id: FlavorId;
   /** Price per bag in cents, to avoid floating point money math. */
   priceCents: number;
   sizeOz: number;
-  heat: HeatLevel;
-  smallBatch: boolean;
   inStock: boolean;
 };
 
 export type BundleTier = {
   bagCount: number;
   discountPercent: number;
-  label: string;
 };
 
 export type Drop = {
   id: string;
-  productId: string;
-  title: string;
+  /** Small batch flavors have no bag color of their own. */
+  flavorName: string;
   /** ISO 8601 timestamp of when the drop goes live. */
   releasesAt: string;
-  bagsAvailable: number;
 };
 
 export type LoyaltyTier = {
   name: string;
-  minPoints: number;
+  minCoins: number;
 };
 
 export type LoyaltyAccount = {
   memberName: string;
-  points: number;
+  /** Loyalty points are called Jerky Coins. */
+  coins: number;
   tier: LoyaltyTier;
   nextTier: LoyaltyTier | null;
 };
@@ -44,13 +39,13 @@ export type MiniGame = {
   name: string;
   description: string;
   cadence: 'daily' | 'weekly';
-  maxPoints: number;
+  maxCoins: number;
 };
 
 export type Subscription = {
   id: string;
   planName: string;
-  productIds: string[];
+  flavorIds: FlavorId[];
   /** ISO 8601 date of the next shipment. */
   nextShipDate: string;
   status: 'active' | 'skipped' | 'paused';

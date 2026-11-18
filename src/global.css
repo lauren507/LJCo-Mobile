@@ -5,17 +5,67 @@
 @import "nativewind/theme";
 
 /*
- * Brand tokens. Each one becomes a utility: bg-smoke, text-cream, border-ember...
- * Keep the hex values in sync with src/constants/theme.ts, which feeds the few
- * native APIs (tab bar, status bar, game canvas) that can't read class names.
+ * Louisville Jerky Co. design tokens, from the brand design system
+ * (tokens.json). Each one becomes a utility: bg-cream, text-navy, font-display,
+ * text-headline, rounded-pill and so on.
+ *
+ * The app uses the Classic theme: cream ground, navy ink, gold CTA.
+ * Keep the hex values in sync with src/constants/theme.ts.
  */
 @theme {
-  --color-smoke: #17120f; /* app background */
-  --color-char: #231b16; /* cards, raised surfaces */
-  --color-hickory: #3a2c23; /* borders, pressed states */
-  --color-cream: #f6ecd9; /* primary text */
-  --color-tan: #b8a48a; /* secondary text */
-  --color-ember: #e2562b; /* primary action */
-  --color-bourbon: #d9942b; /* loyalty, rewards */
-  --color-pepper: #7fa650; /* success, in stock */
+  /* Palette */
+  --color-cream: #ded7b9;
+  --color-gold: #eaaf3f;
+  --color-orange: #f4762d;
+  --color-pink: #f7a8a6;
+  --color-lavender: #c67eac;
+  --color-red: #ef3f4f;
+  --color-sky: #63c5d8;
+  --color-navy: #1e1a3b;
+  --color-ink-black: #090420;
+  --color-leaf-green: #54a94d;
+  --color-est-pink: #d18cbd;
+
+  /* Semantic tokens, Classic theme */
+  --color-ground: #ded7b9;
+  --color-ink: #1e1a3b;
+  --color-cta: #eaaf3f;
+  --color-on-cta: #1e1a3b;
+  --color-edge: #1e1a3b;
+
+  /* Type: the names match the fonts loaded in src/app/_layout.tsx */
+  --font-display: Anton;
+  --font-body: GothamPro-Medium;
+  --font-body-bold: GothamPro-Bold;
+  --font-letter: GreycliffCF-Bold;
+  --font-flavor: Docktrin;
+
+  --text-hero: 64px;
+  --text-hero--line-height: 66px;
+  --text-headline: 44px;
+  --text-headline--line-height: 48px;
+  --text-subhead: 28px;
+  --text-subhead--line-height: 32px;
+  --text-cta-label: 22px;
+  --text-cta-label--line-height: 24px;
+  --text-label: 15px;
+  --text-label--line-height: 18px;
+  --text-flavor-title: 36px;
+  --text-flavor-title--line-height: 36px;
+  --text-flavor-tag: 18px;
+  --text-flavor-tag--line-height: 18px;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 26px;
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+  --text-small: 13px;
+  --text-small--line-height: 19px;
+  --text-fine-print: 11px;
+  --text-fine-print--line-height: 16px;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
 }

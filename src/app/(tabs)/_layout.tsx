@@ -4,14 +4,10 @@ import { Colors } from '@/constants/theme';
 
 export default function TabsLayout() {
   return (
-    <NativeTabs
-      backgroundColor={Colors.char}
-      tintColor={Colors.ember}
-      iconColor={{ default: Colors.tan, selected: Colors.ember }}
-      labelStyle={{ default: { color: Colors.tan }, selected: { color: Colors.ember } }}>
+    <NativeTabs backgroundColor={Colors.cream} tintColor={Colors.navy}>
       <NativeTabs.Trigger name="index">
         <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon sf={{ default: 'flame', selected: 'flame.fill' }} md="local_fire_department" />
+        <NativeTabs.Trigger.Icon sf={{ default: 'house', selected: 'house.fill' }} md="home" />
       </NativeTabs.Trigger>
 
       <NativeTabs.Trigger name="shop">
